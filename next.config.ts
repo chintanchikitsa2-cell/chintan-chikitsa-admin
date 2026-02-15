@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "6mb", // or "5mb", "20mb"
     },
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {

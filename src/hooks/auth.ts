@@ -59,3 +59,27 @@ export function useEmailSignIn(): UseEmailSignInResult {
     data,
   };
 }
+
+export function useLogout() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const logout = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      await authClient.signOut();
+    } catch (err: any) {
+      setError(err?.message ?? "Logout failed");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return {
+    logout,
+    loading,
+    error,
+  };
+}

@@ -3,8 +3,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <Button><Link href="auth/sign-in">Login</Link></Button>
-    </>
+    <div className="mx-auto flex min-h-screen items-center justify-center">
+      <Button>
+        <Link href="auth/sign-in">Login</Link>
+      </Button>
+    </div>
   );
 }
